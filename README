@@ -1,5 +1,7 @@
 
-Encrypt email script for maildrop
+Automatically GPG encrypt incomming email via maildrop.
+
+Encrypt email script for maildrop.
 
 
 1. Install:
