@@ -1,0 +1,50 @@
+
+Encrypt email script for maildrop
+
+
+1. Install:
+-----------
+   #apt-get install maildrop
+
+   a. Edit "gnupg_maildrop.pl" set your PGP key:
+   --------------------------------------------
+	$GPGKEY = "00000000";
+
+
+   b. Example filter in "~/.mailfilter".
+      It will encrypt all the incomming email except the already encrypted one.
+      -----------------------------------------------------------------------
+      DEFAULT="$HOME/Maildir"
+      SHELL="/bin/bash"
+
+      if (!/^Content-Type: multipart\/encrypted/ || !/protocol\=\"application\/pgp\-encrypted\"/)
+      {
+		xfilter "~/gnupg_maildrop.pl | reformail -I 'Content-Type: multipart/encrypted; protocol=\"application/pgp-encrypted\"; boundary=\"MfFXiAuoTsnnDAfX\"' -I 'Content-transfer-encoding:' -I 'Content-disposition:'"
+
+      }
+      ---------------------------------------------------------------------
+
+
+2. F.A.Q.:
+----------
+
+	a. Do I need to upload my private pgp key in server ?
+	-----------------------------------------------------
+	It is optional, you may simply use another pair of private-public key. Import your main public key and set trust level in the server. Use your main key as recipient while encrypting mail automatically.
+
+
+	b. What happend if I receive an encrypted mail ?
+	------------------------------------------------
+	The maildrop rule will check for encryted mail header and will not encrypt it.
+	If the mail header is broken, it may encrypt, but you will be able to decrypt it by entering password twice.!!
+
+
+
+3. History:
+-----------
+
+	This script is based on the procmail gpg example:
+
+	a. http://www.torservers.net/wiki/setup/mailserver?rev=1315171637#encrypt_user_mailbox
+	b. http://www.j3e.de/pgp-mime-encrypt-in-procmail.html
+
