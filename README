@@ -45,7 +45,7 @@ Encrypt email script for maildrop.
 3. History:
 -----------
 
-	This script is based on the procmail gpg example:
+	This script is based on the procmail pgp example:
 
 	a. http://www.torservers.net/wiki/setup/mailserver?rev=1315171637#encrypt_user_mailbox
 	b. http://www.j3e.de/pgp-mime-encrypt-in-procmail.html
