@@ -12,7 +12,7 @@ Encrypt email script for maildrop
 
 
    b. Example filter in "~/.mailfilter".
-      It will encrypt all the incomming email except the already encrypted one.
+      It will encrypt all the incoming email except the already encrypted one.
       -----------------------------------------------------------------------
       DEFAULT="$HOME/Maildir"
       SHELL="/bin/bash"
@@ -33,9 +33,9 @@ Encrypt email script for maildrop
 	It is optional, you may simply use another pair of private-public key. Import your main public key and set trust level in the server. Use your main key as recipient while encrypting mail automatically.
 
 
-	b. What happend if I receive an encrypted mail ?
+	b. What happened if I receive an encrypted mail ?
 	------------------------------------------------
-	The maildrop rule will check for encryted mail header and will not encrypt it.
+	The maildrop rule will check for encrypted mail header and will not encrypt it.
 	If the mail header is broken, it may encrypt, but you will be able to decrypt it by entering password twice.!!
 
 
